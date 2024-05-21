@@ -3,7 +3,7 @@ from model import db, Product, Store, Price
 from datetime import datetime
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql:///pricing.db'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root:root@localhost:3306/data'
 db.init_app(app)
 
 @app.route('/')
