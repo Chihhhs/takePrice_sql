@@ -1,5 +1,6 @@
 flask
 flask-wtf
 Flask-SQLAlchemy
+mysql-connector-python
 
 requests
