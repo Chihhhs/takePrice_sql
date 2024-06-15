@@ -1,16 +1,8 @@
 from flask import Flask, render_template, request
 from model import db, Product, Store, Price
-from datetime import datetime
-import mysql.connector
-
-mydb = mysql.connector.connect(
-  host="localhost",
-  user="root",
-  password="password"
-)
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+mysqldb://root:password@localhost/price_comparison' ## 'sqlite:///pricing.db'
+app.config['SQLALCHEMY_DATABASE_URI'] = "mysql+pymysql://root:secret@db:3306/price_comparison" ## 'sqlite:///pricing.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db.init_app(app)
 
@@ -31,4 +23,4 @@ def search_product():
 if __name__ == '__main__':
     with app.app_context():
         db.create_all()
-    app.run(debug=True)
+    app.run(port=5000)

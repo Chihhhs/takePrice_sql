@@ -1,0 +1,21 @@
+version: '3'
+
+services:
+  db:
+    image: mysql
+    command: --init-file /data/application/init.sql
+    volumes:
+      - ./dbdata/init.sql:/data/application/init.sql
+    ports:
+      - "33061:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: secribe_su_contrasena
+      MYSQL_DATABASE: price_comparison
+      MYSQL_USER: root
+      MYSQL_PASSWORD: secribe_su_contrasena
+  web:
+    build: ./app
+    ports:
+      - "80:5000"
+    depends_on:
+      - db
