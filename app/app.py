@@ -2,7 +2,7 @@ from flask import Flask, render_template, request
 from model import db, Product, Store, Price
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = "mysql+pymysql://root:secret@db:3306/price_comparison" ## 'sqlite:///pricing.db'
+app.config['SQLALCHEMY_DATABASE_URI'] = "mysql://root:secribe_su_contrasena@db:3306/price_comparison" ## 'sqlite:///pricing.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db.init_app(app)
 

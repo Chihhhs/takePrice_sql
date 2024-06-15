@@ -11,11 +11,17 @@ services:
     environment:
       MYSQL_ROOT_PASSWORD: secribe_su_contrasena
       MYSQL_DATABASE: price_comparison
-      MYSQL_USER: root
-      MYSQL_PASSWORD: secribe_su_contrasena
+    networks:
+      - mynet
   web:
     build: ./app
     ports:
       - "80:5000"
     depends_on:
       - db
+    networks:
+      - mynet
+
+networks:
+  mynet:
+    driver: bridge
