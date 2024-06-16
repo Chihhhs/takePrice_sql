@@ -9,7 +9,4 @@ RUN set -xe \
 
 RUN pip install --upgrade pip
 RUN pip install -r requirements.txt
-EXPOSE 8080
-
-RUN python3 insert_data.py
-RUN python3 app.py
+EXPOSE 5000
